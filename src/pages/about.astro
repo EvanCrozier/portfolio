@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="A Propos De Moi  | Evan Crozier" description="A Propos de Evan Crozier">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="A Propos De Moi"
+				tagline="Merci pour ce passage voici des infos sur moi en quelques lignes "
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/me.jpg"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Passionné de numérique et de jeux vidéo, je suis curieux d'apprendre de nouvelles connaissances et de me perfectionner dans celles que j'ai déjà. J'ai donc décidé, après une formation découverte avec UDEMY, de me reconvertir comme développeur web. À l'origine plombier-chauffagiste, je ne me retrouvais plus dans ce métier pratiquer pendant plus de dix ans. À l'issue de la formation chez O'clock, j'ai effectué un stage en tant que Développeur FullStack pour des modules Prestashop. Je suis actuellement en poste en tant que Developpeur Fullstack, je complete mon activité professionnelle par la création de sites web/applications à la demande.  
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Formations</h2>
+				<div class="content">
+					<p>Développeur Web et Web Mobile : O'Clock (fevrier - Aout 2023).</p>
+					<p>Brevet Professionnel en Génie Climatique : Compagnons du Devoir et du Tour de France 2014.</p>
+					<p>CAP Installateur Thermique : Compagnons Du Devoir et Du Tour de Frande 2009 - 2011.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Compétences</h2>
+				<div class="content">
+					<p>HTML, CSS, Bootstrap, Javascript, JQuery, PHP, Symfony, Laravel, Prestashop, WordPress.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
